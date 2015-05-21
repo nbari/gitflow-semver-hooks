@@ -1,7 +1,6 @@
 #!/bin/sh
 
-COLOR_RED='\e[0;31m'
-ICON_CROSS=$COLOR_RED'✘  \e[m'
+ICON_CROSS=$(printf '\e[0;31m✘  \e[m')
 
 ROOT_DIR=$(git rev-parse --show-toplevel 2> /dev/null)
 HOOKS_DIR=$(dirname $SCRIPT_PATH)
