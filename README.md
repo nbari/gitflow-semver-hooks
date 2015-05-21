@@ -27,35 +27,49 @@ git config gitflow.path.hooks /path/to/git-flow-hooks
 Starting releases and hotfixes
 ------------------------------
 
-If `git flow release start` and `git flow hotfix start` are run without a version, the version will be bumped automatically.
-Releases will be bumped at the minor level (`1.2.3` becomes `1.3.0`), hotfixes at the patch level (`1.2.3` becomes `1.2.4`).
+If `git flow release start` and `git flow hotfix start` are run without a
+version, the version will be bumped automatically.  Releases will be bumped at
+the minor level (`1.2.3` becomes `1.3.0`), hotfixes at the patch level (`1.2.3`
+becomes `1.2.4`).
+
 The hooks will look at the git tags to find the version to bump.
-If no tags are found, it looks for the version-file.
-If that isn't found, it assumes the current version is `0.1.0`.
+If no tags are found, defaults to `0.1.0`.
 
 Alternatively you may use `patch`, `minor` and `major` as version.
-A bump of that level will take place.
+A bump of that level will take place, example:
 
-If the commands are run with version, that version will be used (no bumping).
+```sh
+git flow release start patch # (0.1.1 --> 0.1.2)
+git flow release start minor # (0.1.1 --> 0.2.0)
+git flow release start major # (0.1.1 --> 1.0.0)
+```
+
+If the commands are run with version, that version will be used (no bumping),
+example:
+
+```sh
+git flow release start 0.1.3
+```
 
 Automatic tag messages
 ----------------------
 
-If you want tag messages to be automated (you won't be bothered with your editor to specify it), use the following configuration options:
+If you want tag messages to be automated (you won't be bothered with your editor
+to specify it), use the following configuration options:
 
 ```sh
 git config gitflow.hotfix.finish.message "Hotfix %tag%"
 git config gitflow.release.finish.message "Release %tag%"
 ```
 
-If you like, you can change the tag-placeholder (`%tag%` in the example above) in the git-flow-hooks configuration.
+If you like, you can change the tag-placeholder (`%tag%` in the example above)
+in the git-flow-hooks configuration.
 
 Based on [jaspernbrouwer/git-flow-hooks][2]
 
 
 * Fixed to work in all *nix (FreeBSD, Linux, Mac) no need to have ``bash``
-* Default Semantic Version 0.1.0
-* No ``VERSION`` file
+* Versions remain in tags, No ``VERSION`` file.
 
 [1]: https://github.com/petervanderdoes/gitflow
 [2]: https://github.com/jaspernbrouwer/git-flow-hooks
