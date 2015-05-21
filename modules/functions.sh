@@ -6,7 +6,7 @@ ROOT_DIR=$(git rev-parse --show-toplevel 2> /dev/null)
 HOOKS_DIR=$(dirname $SCRIPT_PATH)
 
 __print_fail() {
-    echo -e "   $ICON_CROSS $1"
+    echo "   $ICON_CROSS $1" 1>&2
 }
 
 __get_commit_files() {
