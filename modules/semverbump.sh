@@ -49,7 +49,7 @@ fi
 
 # default semver 0.1.0
 if [ -z "$VERSION_CURRENT" ]; then
-    VERSION_CURRENT="0.1.0"
+    VERSION_CURRENT="0.0.0"
 fi
 
 # bump version
