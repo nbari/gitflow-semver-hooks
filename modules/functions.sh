@@ -1,6 +1,9 @@
 #!/bin/sh
 
-ICON_CROSS=$(printf '\e[0;31m✘  \e[m')
+# ctrl+v+esc , \e, \033
+COLOR_RED=`echo "\033[0;31m"`
+COLOR_NORMAL=`echo "\033[m"`
+ICON_CROSS="${COLOR_RED} ✘  ${COLOR_NORMAL}"
 
 ROOT_DIR=$(git rev-parse --show-toplevel 2> /dev/null)
 HOOKS_DIR=$(dirname $SCRIPT_PATH)
